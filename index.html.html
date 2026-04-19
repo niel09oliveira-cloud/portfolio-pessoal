@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio - Daniel</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Daniel Dev</div>
+    <ul class="nav-links">
+      <li><a href="#about" class="nav-anchor">Sobre</a></li>
+      <li><a href="#skills" class="nav-anchor">Skills</a></li>
+      <li><a href="#contact" class="nav-anchor">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-tag reveal">
+        <span class="dot"></span>
+        Disponivel para oportunidades
+      </div>
+      <h1 class="hero-name reveal reveal-delay-1">
+        <span class="line1">Web</span>
+        <span class="line2">Developer</span>
+      </h1>
+      <p class="hero-sub reveal reveal-delay-2">
+        Apaixonado por criar experiencias digitais que combinam <span>código limpo</span> com design que impressiona.
+      </p>
+      <div class="hero-btns reveal reveal-delay-3">
+        <a href="#contact" class="btn-primary nav-anchor">Fale comigo</a>
+        <a href="https://github.com/niel09oliveira-cloud" target="_blank" class="btn-ghost">GitHub</a>
+      </div>
+    </div>
+    <div class="hero-deco">
+      <div class="deco-box"><div class="deco-inner"><span class="deco-icon">&#127760;</span>Web Dev</div></div>
+      <div class="deco-box"><div class="deco-inner"><span class="deco-icon">&#10022;</span></div></div>
+      <div class="deco-box"><div class="deco-inner">HTML &middot; CSS &middot; JS</div></div>
+    </div>
+  </section>
+
+  <div class="glow-divider-wrap"><div class="glow-divider"></div></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-left">
+      <p class="section-label reveal">about me</p>
+      <h2 class="section-title reveal reveal-delay-1">Quem é<br>o Daniel?</h2>
+      <div class="about-text reveal reveal-delay-2">
+        <p>Sou estudante de <strong>Engenharia de Software</strong> pela Unopar, apaixonado por transformar ideias em experiencias web que realmente chamam atenção.</p>
+        <p>Me especializo no desenvolvimento <strong>Front-End</strong>, buscando sempre o equilibrio entre código bem estruturado e interfaces que causam impacto. Estou em constante aprendizado e evolução.</p>
+      </div>
+    </div>
+    <div class="about-visual reveal reveal-delay-2">
+      <div class="about-card-3d" id="card3d">
+
+        <div class="about-photo">
+          <img src="daniel.jpg.jpeg" alt="Daniel">
+        </div>
+        <div class="about-card-info">
+          <div class="about-card-name">Daniel</div>
+          <div class="about-card-role">Web Developer &middot; Londrina, PR</div>
+          <div class="about-card-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Git</span>
+            <span class="tag">Front-End</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider-wrap"><div class="glow-divider"></div></div>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="skills-header">
+      <p class="section-label reveal" style="justify-content:center">skills</p>
+      <h2 class="section-title reveal reveal-delay-1">Minhas<br>Habilidades</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal" data-fill="90">
+        <div class="skill-icon">&#127760;</div>
+        <div class="skill-name">HTML5</div>
+        <div class="skill-level">Avançado</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1" data-fill="85">
+        <div class="skill-icon">&#127912;</div>
+        <div class="skill-name">CSS3</div>
+        <div class="skill-level">Avançado</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2" data-fill="65">
+        <div class="skill-icon">&#9889;</div>
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-level">Intermediário</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-3" data-fill="75">
+        <div class="skill-icon">&#128025;</div>
+        <div class="skill-name">Git &amp; GitHub</div>
+        <div class="skill-level">Intermediário</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill-card reveal" data-fill="70">
+        <div class="skill-icon">&#127482;&#127480;</div>
+        <div class="skill-name">Ingles</div>
+        <div class="skill-level">Intermediário</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1" data-fill="75">
+        <div class="skill-icon">&#129504;</div>
+        <div class="skill-name">Logica de Programacao</div>
+        <div class="skill-level">Intermediário</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2" data-fill="55">
+        <div class="skill-icon">&#128241;</div>
+        <div class="skill-name">Responsive Design</div>
+        <div class="skill-level">Intermediário</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-3" data-fill="40">
+        <div class="skill-icon">&#128640;</div>
+        <div class="skill-name">Em aprendizado...</div>
+        <div class="skill-level">Crescendo sempre</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider-wrap"><div class="glow-divider"></div></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-left">
+      <p class="section-label reveal">contato</p>
+      <h2 class="section-title reveal reveal-delay-1">Vamos<br>conversar?</h2>
+      <p class="about-text reveal reveal-delay-2" style="margin-bottom:0">Estou aberto a oportunidades, projetos e colaborações. Me chama!</p>
+      <div class="contact-links">
+        <a href="https://github.com/niel09oliveira-cloud" target="_blank" class="contact-link reveal reveal-delay-1">
+          <div class="contact-link-icon">&#128025;</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">GitHub</div>
+            <div class="contact-link-value">niel09oliveira-cloud</div>
+          </div>
+          <span class="contact-link-arrow">&#8594;</span>
+        </a>
+        <a href="https://www.linkedin.com/in/daniel-martins-de-oliveira-1724513a6" target="_blank" class="contact-link reveal reveal-delay-2">
+          <div class="contact-link-icon">&#128188;</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-value">daniel-martins-de-oliveira</div>
+          </div>
+          <span class="contact-link-arrow">&#8594;</span>
+        </a>
+        <a href="mailto:niel09oliveira@gmail.com" class="contact-link reveal reveal-delay-3">
+          <div class="contact-link-icon">&#9993;</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-value">niel09oliveira@gmail.com</div>
+          </div>
+          <span class="contact-link-arrow">&#8594;</span>
+        </a>
+        <a href="https://wa.me/5543984260540" target="_blank" class="contact-link reveal reveal-delay-3">
+          <div class="contact-link-icon">&#128172;</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">WhatsApp</div>
+            <div class="contact-link-value">(43) 98426-0540</div>
+          </div>
+          <span class="contact-link-arrow">&#8594;</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- FORMULARIO WEB3FORMS -->
+    <div class="contact-form-side reveal reveal-delay-2">
+
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+
+        <!-- Chave do Web3Forms — substitua pelo seu access key -->
+        <input type="hidden" name="access_key" value="6396bb27-a17f-476a-b200-0113eb4427bb">
+
+        <!-- Assunto do email que vai chegar pra voce -->
+        <input type="hidden" name="subject" value="Novo contato via Portfolio - Daniel Dev">
+
+        <!-- Redireciona para a mesma pagina apos envio -->
+        <input type="hidden" name="redirect" value="false">
+
+        <div class="form-group">
+          <label class="form-label" for="nome">Seu nome</label>
+          <input id="nome" type="text" name="name" class="form-input" placeholder="Como posso te chamar?" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input id="email" type="email" name="email" class="form-input" placeholder="seu @email.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="message" class="form-textarea" placeholder="Olá Daniel, gostaria de..." required></textarea>
+        </div>
+
+        <button type="submit" class="form-btn" id="form-btn">Enviar mensagem &#8594;</button>
+        <div id="form-status"></div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-text">&#169; 2026 <span>Daniel Dev</span>. Feito com código e café. &#9749;</div>
+    <div class="footer-text">Londrina, PR &middot; Brasil</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
