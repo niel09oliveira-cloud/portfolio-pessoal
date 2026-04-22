@@ -194,7 +194,45 @@ document.querySelectorAll('.skill-card, .cert-card').forEach(c => {
 });
 
 
-// ── VALIDAÇÃO E ENVIO DO FORMULÁRIO ──────────────
+
+
+// ── FILTROS DE PROJETOS ───────────────────────────
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Atualizar botão ativo
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.dataset.filter;
+
+    projectCards.forEach(card => {
+      const categories = card.dataset.categories.split(' ');
+      const match = filter === 'all' || categories.includes(filter);
+
+      if (match) {
+        card.classList.remove('hidden');
+        // Re-trigger reveal animation
+        card.classList.remove('visible');
+        setTimeout(() => card.classList.add('visible'), 30);
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// Garantir glow nos project cards também
+document.querySelectorAll('.project-card').forEach(c => {
+  c.addEventListener('mousemove', e => {
+    const r = c.getBoundingClientRect();
+    c.style.setProperty('--mx', ((e.clientX - r.left) / r.width  * 100) + '%');
+    c.style.setProperty('--my', ((e.clientY - r.top)  / r.height * 100) + '%');
+  });
+});
+
 const form   = document.getElementById('contact-form');
 const btn    = document.getElementById('form-btn');
 const status = document.getElementById('form-status');

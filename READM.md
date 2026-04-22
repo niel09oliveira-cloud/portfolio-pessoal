@@ -25,6 +25,7 @@ Um portfólio web moderno, responsivo e acessível desenvolvido com **HTML, CSS 
 - **Hero Section** - Apresentação impactante com animações
 - **Sobre** - Card 3D interativo com foto
 - **Skills** - 8 habilidades com barras de progresso animadas
+- **Projetos** - Cards interativos com filtros por tecnologia
 - **Certificados** - Formação e certificações profissionais
 - **Contato** - Formulário validado + links de redes sociais
 - **Footer** - Localização e créditos
@@ -36,6 +37,7 @@ Um portfólio web moderno, responsivo e acessível desenvolvido com **HTML, CSS 
 - 🎨 **Canvas de Partículas** - Fundo animado (otimizado para mobile)
 - 🖱️ **Cursor Customizado** - Cursor interativo de cal
 - 🎭 **Efeito 3D** - Card do About com perspectiva ao hover
+- 🗂️ **Filtros de Projetos** - Filtragem por tecnologia sem reload
 - 📱 **Responsivo** - Desktop, tablet e mobile otimizados
 - 🔍 **SEO Completo** - Meta tags, Open Graph, Favicon
 - ✅ **Validação** - Formulário com feedback em tempo real
@@ -50,26 +52,12 @@ Um portfólio web moderno, responsivo e acessível desenvolvido com **HTML, CSS 
 |-----------|-----------|
 | **HTML5** | Semântica e meta tags |
 | **CSS3** | Grid, Flexbox, Animations, Transitions |
-| **JavaScript (Vanilla)** | Interatividade, validação, dark mode |
+| **JavaScript (Vanilla)** | Interatividade, validação, dark mode, filtros |
 | **Canvas API** | Partículas animadas no fundo |
 | **Web3Forms** | Integração de formulário |
 | **Google Fonts** | Fontes Syne e DM Mono |
 
 **Nenhum framework ou dependência externa!**
-
----
-
-## 📂 Estrutura do Projeto
-
-```
-portfolio-pessoal/
-├── index.html              # Estrutura HTML
-├── style.css               # Estilos e dark mode
-├── script.js               # Funcionalidades e lógica
-├── daniel.jpg.jpeg         # Foto profissional
-├── README.md              # Este arquivo
-└── .gitignore             # Arquivos ignorados
-```
 
 ---
 
@@ -142,6 +130,67 @@ Acesse: `http://localhost:8000`
 ```html
 <input type="hidden" name="access_key" value="SUA_CHAVE_AQUI">
 ```
+
+---
+
+## 🗂️ Seção de Projetos
+
+Exibe seus projetos com cards interativos e filtros por tecnologia.
+
+### Projetos incluídos
+
+| # | Projeto | Tecnologias | Link |
+|---|---------|-------------|------|
+| 01 | **Android WebSite** | HTML5, CSS3, Animações, Flexbox | [Ver ao vivo](https://niel09oliveira-cloud.github.io/android-website/) |
+| 02 | **Task Manager** | JavaScript, HTML5, CSS3, localStorage | [Ver ao vivo](https://niel09oliveira-cloud.github.io/task-manager/) |
+
+### Filtros disponíveis
+
+- **Todos** — exibe todos os projetos
+- **HTML & CSS** — projetos focados em marcação e estilo
+- **JavaScript** — projetos com lógica e interatividade
+
+### Adicionar um novo projeto
+
+**No `index.html`, dentro de `#projects-grid`:**
+
+```html
+<div class="project-card reveal" data-categories="javascript html-css">
+  <div class="project-preview">
+    <div class="project-preview-bg" style="background: linear-gradient(135deg, #COR1, #COR2);">
+      <div class="project-preview-icon">🚀</div>
+    </div>
+    <div class="project-overlay">
+      <a href="LINK_DO_PROJETO" target="_blank" class="project-live-btn">Ver ao vivo →</a>
+    </div>
+  </div>
+  <div class="project-body">
+    <div class="project-meta">
+      <span class="project-number">03</span>
+      <div class="project-links">
+        <a href="LINK_DO_PROJETO" target="_blank" class="project-icon-link">🔗</a>
+        <a href="LINK_DO_GITHUB" target="_blank" class="project-icon-link">🐙</a>
+      </div>
+    </div>
+    <h3 class="project-title">Nome do Projeto</h3>
+    <p class="project-desc">Descrição do projeto aqui.</p>
+    <div class="project-tags">
+      <span class="project-tag">HTML5</span>
+      <span class="project-tag">JavaScript</span>
+    </div>
+  </div>
+</div>
+```
+
+**Categorias disponíveis para `data-categories`:**
+
+| Valor | Filtro correspondente |
+|-------|-----------------------|
+| `html-css` | HTML & CSS |
+| `javascript` | JavaScript |
+
+> Um projeto pode ter múltiplas categorias separadas por espaço:
+> `data-categories="javascript html-css"`
 
 ---
 
@@ -273,6 +322,18 @@ SEO: 100
 const particleCount = isMobile ? 20 : 55;  // Mude os números
 ```
 
+### Adicionar Novo Filtro de Projetos
+
+**Em `index.html`, dentro de `.projects-filters`:**
+```html
+<button class="filter-btn" data-filter="react">React</button>
+```
+
+**Nos cards que devem aparecer nesse filtro, adicione o valor em `data-categories`:**
+```html
+<div class="project-card" data-categories="react javascript">
+```
+
 ### Adicionar Nova Seção
 
 1. Crie um `<section id="nova-secao">` no HTML
@@ -321,6 +382,18 @@ font-family: 'NOVA_FONT', sans-serif;
 // Ver mensagens de erro
 ```
 
+### Filtros de projetos não funcionam
+
+**Verificar:**
+- ✅ O atributo `data-categories` está nos cards?
+- ✅ O valor do `data-filter` no botão bate com algum valor em `data-categories`?
+
+**Debug:**
+```javascript
+// Console do navegador:
+document.querySelectorAll('.project-card') // Lista todos os cards
+```
+
 ### Dark mode não funciona
 
 **Verificar:**
@@ -334,9 +407,9 @@ localStorage.getItem('theme')  // Deve mostrar 'dark' ou 'light'
 ## 📈 Melhorias Futuras
 
 ### Curto Prazo
-- [ ] Adicionar seção de Projetos
+- [x] ~~Adicionar seção de Projetos~~ ✅ Concluído
 - [ ] Blog ou artigos técnicos
-- [ ] Integração GitHub API (repos)
+- [ ] Integração GitHub API (repos dinâmicos)
 - [ ] Certificado PDF download
 
 ### Médio Prazo
@@ -387,7 +460,7 @@ localStorage.clear();
 
 ## 🤝 Contribuições
 
-Encontrou um bug ou tem sugestão? 
+Encontrou um bug ou tem sugestão?
 
 1. Abra uma **Issue** no GitHub
 2. Descreva o problema/sugestão
