@@ -61,6 +61,20 @@ Um portfólio web moderno, responsivo e acessível desenvolvido com **HTML, CSS 
 
 ---
 
+## 📂 Estrutura do Projeto
+
+```
+portfolio-pessoal/
+├── index.html              # Estrutura HTML
+├── style.css               # Estilos e dark mode
+├── script.js               # Funcionalidades e lógica
+├── daniel.jpg.jpeg         # Foto profissional
+├── README.md               # Este arquivo
+└── .gitignore              # Arquivos ignorados
+```
+
+---
+
 ## 🚀 Como Usar
 
 ### 1️⃣ Clone o Repositório
@@ -143,6 +157,7 @@ Exibe seus projetos com cards interativos e filtros por tecnologia.
 |---|---------|-------------|------|
 | 01 | **Android WebSite** | HTML5, CSS3, Animações, Flexbox | [Ver ao vivo](https://niel09oliveira-cloud.github.io/android-website/) |
 | 02 | **Task Manager** | JavaScript, HTML5, CSS3, localStorage | [Ver ao vivo](https://niel09oliveira-cloud.github.io/task-manager/) |
+| 03 | **JS Exercícios** | JavaScript, DOM, Funções, Laços | [Ver no GitHub](https://github.com/niel09oliveira-cloud/js-exercicios) |
 
 ### Filtros disponíveis
 
