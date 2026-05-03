@@ -207,6 +207,26 @@ section { position: relative; z-index: 1; }
 }
 .btn-ghost:hover { border-color: var(--lime); color: var(--lime); transform: translateY(-2px); }
 
+.btn-download {
+  border-color: var(--purple) !important;
+  color: var(--purple) !important;
+  position: relative; overflow: hidden;
+}
+.btn-download::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--purple);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.btn-download:hover {
+  border-color: var(--purple) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 30px rgba(124,58,237,.35);
+  transform: translateY(-2px);
+}
+.btn-download:hover::after { opacity: .15; }
+
 .hero-deco {
   position: absolute; right: 0; top: 0;
   width: 40%; height: 100%;
