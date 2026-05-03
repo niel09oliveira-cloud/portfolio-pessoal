@@ -232,91 +232,89 @@ document.querySelectorAll('.project-card').forEach(c => {
   });
 });
 
-const form   = document.getElementById('contact-form');
-const btn    = document.getElementById('form-btn');
-const status = document.getElementById('form-status');
+// ── FORMULÁRIO DE CONTATO ─────────────────────────
+// Tudo dentro do if(form) garante que o código só roda
+// se o formulário existir na página — sem erros em outras páginas.
+const form = document.getElementById('contact-form');
 
-// Elementos do formulário
-const nomeInput = document.getElementById('nome');
-const emailInput = document.getElementById('email');
-const msgInput = document.getElementById('mensagem');
-
-const erroNome = document.getElementById('erro-nome');
-const erroEmail = document.getElementById('erro-email');
-const erroMsg = document.getElementById('erro-msg');
-
-// Funções de validação
-function validarNome(value) {
-  return value.trim().length >= 3;
-}
-
-function validarEmail(value) {
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return regex.test(value);
-}
-
-function validarMensagem(value) {
-  return value.trim().length >= 10;
-}
-
-// Mostrar erro no campo
-function mostrarErro(input, errorEl, mensagem) {
-  input.classList.add('error');
-  errorEl.textContent = mensagem;
-}
-
-// Limpar erro do campo
-function limparErro(input, errorEl) {
-  input.classList.remove('error');
-  errorEl.textContent = '';
-}
-
-// Validação em tempo real
-nomeInput.addEventListener('blur', () => {
-  if (!validarNome(nomeInput.value)) {
-    mostrarErro(nomeInput, erroNome, 'Nome deve ter no mínimo 3 caracteres');
-  } else {
-    limparErro(nomeInput, erroNome);
-  }
-});
-
-emailInput.addEventListener('blur', () => {
-  if (!validarEmail(emailInput.value)) {
-    mostrarErro(emailInput, erroEmail, 'Email inválido');
-  } else {
-    limparErro(emailInput, erroEmail);
-  }
-});
-
-msgInput.addEventListener('blur', () => {
-  if (!validarMensagem(msgInput.value)) {
-    mostrarErro(msgInput, erroMsg, 'Mensagem deve ter no mínimo 10 caracteres');
-  } else {
-    limparErro(msgInput, erroMsg);
-  }
-});
-
-// Limpar erro ao digitar
-nomeInput.addEventListener('input', () => {
-  if (nomeInput.classList.contains('error')) {
-    limparErro(nomeInput, erroNome);
-  }
-});
-
-emailInput.addEventListener('input', () => {
-  if (emailInput.classList.contains('error')) {
-    limparErro(emailInput, erroEmail);
-  }
-});
-
-msgInput.addEventListener('input', () => {
-  if (msgInput.classList.contains('error')) {
-    limparErro(msgInput, erroMsg);
-  }
-});
-
-// Envio do formulário
 if (form) {
+  const btn    = document.getElementById('form-btn');
+  const status = document.getElementById('form-status');
+
+  // Elementos do formulário
+  const nomeInput  = document.getElementById('nome');
+  const emailInput = document.getElementById('email');
+  const msgInput   = document.getElementById('mensagem');
+
+  const erroNome  = document.getElementById('erro-nome');
+  const erroEmail = document.getElementById('erro-email');
+  const erroMsg   = document.getElementById('erro-msg');
+
+  // Funções de validação
+  function validarNome(value) {
+    return value.trim().length >= 3;
+  }
+
+  function validarEmail(value) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(value);
+  }
+
+  function validarMensagem(value) {
+    return value.trim().length >= 10;
+  }
+
+  // Mostrar erro no campo
+  function mostrarErro(input, errorEl, mensagem) {
+    input.classList.add('error');
+    errorEl.textContent = mensagem;
+  }
+
+  // Limpar erro do campo
+  function limparErro(input, errorEl) {
+    input.classList.remove('error');
+    errorEl.textContent = '';
+  }
+
+  // Validação em tempo real
+  nomeInput.addEventListener('blur', () => {
+    if (!validarNome(nomeInput.value)) {
+      mostrarErro(nomeInput, erroNome, 'Nome deve ter no mínimo 3 caracteres');
+    } else {
+      limparErro(nomeInput, erroNome);
+    }
+  });
+
+  emailInput.addEventListener('blur', () => {
+    if (!validarEmail(emailInput.value)) {
+      mostrarErro(emailInput, erroEmail, 'Email inválido');
+    } else {
+      limparErro(emailInput, erroEmail);
+    }
+  });
+
+  msgInput.addEventListener('blur', () => {
+    if (!validarMensagem(msgInput.value)) {
+      mostrarErro(msgInput, erroMsg, 'Mensagem deve ter no mínimo 10 caracteres');
+    } else {
+      limparErro(msgInput, erroMsg);
+    }
+  });
+
+  // Limpar erro ao digitar
+  nomeInput.addEventListener('input', () => {
+    if (nomeInput.classList.contains('error')) limparErro(nomeInput, erroNome);
+  });
+
+  emailInput.addEventListener('input', () => {
+    if (emailInput.classList.contains('error')) limparErro(emailInput, erroEmail);
+  });
+
+  msgInput.addEventListener('input', () => {
+    if (msgInput.classList.contains('error')) limparErro(msgInput, erroMsg);
+  });
+
+  // Envio do formulário
   let lastSubmit = 0; // ── RATE LIMIT ──
 
   form.addEventListener('submit', async function(e) {
