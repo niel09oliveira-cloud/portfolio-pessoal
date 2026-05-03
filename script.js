@@ -1,6 +1,5 @@
 // =====================================================
 //   DANIEL DEV — PORTFOLIO
-//   script.js (ATUALIZADO)
 // =====================================================
 
 // ── DARK/LIGHT MODE ──────────────────────────────
@@ -318,8 +317,19 @@ msgInput.addEventListener('input', () => {
 
 // Envio do formulário
 if (form) {
+  let lastSubmit = 0; // ── RATE LIMIT ──
+
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
+
+    // ── RATE LIMIT: bloqueia reenvios em menos de 15 segundos ──
+    const now = Date.now();
+    if (now - lastSubmit < 15000) {
+      const restante = Math.ceil((15000 - (now - lastSubmit)) / 1000);
+      status.textContent = `Aguarde ${restante}s antes de enviar novamente.`;
+      status.style.cssText = 'margin-top:.8rem;font-size:.75rem;color:#facc15;letter-spacing:1px;text-align:center;';
+      return;
+    }
 
     // Validar todos os campos
     let temErros = false;
@@ -366,6 +376,7 @@ if (form) {
       const json = await res.json();
 
       if (json.success) {
+        lastSubmit = Date.now(); // ── RATE LIMIT: registra timestamp do envio ──
         // SUCESSO
         btn.disabled = false;
         btn.classList.remove('loading');

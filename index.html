@@ -438,6 +438,9 @@ Ficarei feliz em conversar com você. <br>Estou aberto a oportunidades, projetos
           <span id="erro-msg" class="form-error"></span>
         </div>
 
+        <!-- Honeypot: campo invisível — bots preenchem, humanos não -->
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
         <button type="submit" class="form-btn" id="form-btn">Enviar mensagem →</button>
         <div id="form-status"></div>
 
