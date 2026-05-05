@@ -794,8 +794,8 @@ footer {
 /* MOBILE */
 @media (max-width: 640px) {
   nav { padding: 1rem 1.5rem; flex-direction: column; gap: 1rem; }
-  .nav-links { gap: 1.5rem; }
-  .nav-links a { font-size: .7rem; }
+  .nav-links { gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
+  .nav-links a { font-size: .65rem; letter-spacing: 1px; }
   
   .theme-toggle {
     top: 0.8rem;
