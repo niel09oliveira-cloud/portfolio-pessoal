@@ -2,13 +2,25 @@
 //   DANIEL DEV — PORTFOLIO
 // =====================================================
 
-// ── WEB3FORMS KEY (injetada via JS, nunca no HTML) ──
-// Dica: ative a restrição de domínio no painel da Web3Forms
-// para que esta chave só funcione no seu domínio.
+// ── CONTATOS (montados via JS para dificultar bots scrapers) ──
+// Os valores não ficam no HTML — scrapers automáticos não coletam.
 (function () {
-  const k = ['6396bb27', 'a17f', '476a', 'b200', '0113eb4427bb'];
-  const el = document.getElementById('wf-key');
-  if (el) el.value = k.join('-');
+  // Email
+  const eu = 'niel09oliveira', ed = 'gmail.com';
+  const emailLink = document.querySelector('.contact-email');
+  if (emailLink) {
+    emailLink.href = 'mailto:' + eu + '@' + ed;
+    const val = emailLink.querySelector('.contact-link-value');
+    if (val) val.textContent = 'Enviar email →';
+  }
+
+  // WhatsApp — número dividido para não aparecer em texto puro no HTML
+  const wp = ['55', '43', '984260540'];
+  const waLink = document.querySelector('.contact-whatsapp');
+  if (waLink) {
+    waLink.href = 'https://wa.me/' + wp.join('');
+    waLink.target = '_blank';
+  }
 })();
 
 // ── DARK/LIGHT MODE ──────────────────────────────
@@ -240,177 +252,3 @@ document.querySelectorAll('.project-card').forEach(c => {
     c.style.setProperty('--my', ((e.clientY - r.top)  / r.height * 100) + '%');
   });
 });
-
-// ── FORMULÁRIO DE CONTATO ─────────────────────────
-// Tudo dentro do if(form) garante que o código só roda
-// se o formulário existir na página — sem erros em outras páginas.
-const form = document.getElementById('contact-form');
-
-if (form) {
-  const btn    = document.getElementById('form-btn');
-  const status = document.getElementById('form-status');
-
-  // Elementos do formulário
-  const nomeInput  = document.getElementById('nome');
-  const emailInput = document.getElementById('email');
-  const msgInput   = document.getElementById('mensagem');
-
-  const erroNome  = document.getElementById('erro-nome');
-  const erroEmail = document.getElementById('erro-email');
-  const erroMsg   = document.getElementById('erro-msg');
-
-  // Funções de validação
-  function validarNome(value) {
-    return value.trim().length >= 3;
-  }
-
-  function validarEmail(value) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(value);
-  }
-
-  function validarMensagem(value) {
-    return value.trim().length >= 10;
-  }
-
-  // Mostrar erro no campo
-  function mostrarErro(input, errorEl, mensagem) {
-    input.classList.add('error');
-    errorEl.textContent = mensagem;
-  }
-
-  // Limpar erro do campo
-  function limparErro(input, errorEl) {
-    input.classList.remove('error');
-    errorEl.textContent = '';
-  }
-
-  // Validação em tempo real
-  nomeInput.addEventListener('blur', () => {
-    if (!validarNome(nomeInput.value)) {
-      mostrarErro(nomeInput, erroNome, 'Nome deve ter no mínimo 3 caracteres');
-    } else {
-      limparErro(nomeInput, erroNome);
-    }
-  });
-
-  emailInput.addEventListener('blur', () => {
-    if (!validarEmail(emailInput.value)) {
-      mostrarErro(emailInput, erroEmail, 'Email inválido');
-    } else {
-      limparErro(emailInput, erroEmail);
-    }
-  });
-
-  msgInput.addEventListener('blur', () => {
-    if (!validarMensagem(msgInput.value)) {
-      mostrarErro(msgInput, erroMsg, 'Mensagem deve ter no mínimo 10 caracteres');
-    } else {
-      limparErro(msgInput, erroMsg);
-    }
-  });
-
-  // Limpar erro ao digitar
-  nomeInput.addEventListener('input', () => {
-    if (nomeInput.classList.contains('error')) limparErro(nomeInput, erroNome);
-  });
-
-  emailInput.addEventListener('input', () => {
-    if (emailInput.classList.contains('error')) limparErro(emailInput, erroEmail);
-  });
-
-  msgInput.addEventListener('input', () => {
-    if (msgInput.classList.contains('error')) limparErro(msgInput, erroMsg);
-  });
-
-  // Envio do formulário
-  let lastSubmit = 0; // ── RATE LIMIT ──
-
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    // ── RATE LIMIT: bloqueia reenvios em menos de 15 segundos ──
-    const now = Date.now();
-    if (now - lastSubmit < 15000) {
-      const restante = Math.ceil((15000 - (now - lastSubmit)) / 1000);
-      status.textContent = `Aguarde ${restante}s antes de enviar novamente.`;
-      status.style.cssText = 'margin-top:.8rem;font-size:.75rem;color:#facc15;letter-spacing:1px;text-align:center;';
-      return;
-    }
-
-    // Validar todos os campos
-    let temErros = false;
-
-    if (!validarNome(nomeInput.value)) {
-      mostrarErro(nomeInput, erroNome, 'Nome deve ter no mínimo 3 caracteres');
-      temErros = true;
-    } else {
-      limparErro(nomeInput, erroNome);
-    }
-
-    if (!validarEmail(emailInput.value)) {
-      mostrarErro(emailInput, erroEmail, 'Email inválido');
-      temErros = true;
-    } else {
-      limparErro(emailInput, erroEmail);
-    }
-
-    if (!validarMensagem(msgInput.value)) {
-      mostrarErro(msgInput, erroMsg, 'Mensagem deve ter no mínimo 10 caracteres');
-      temErros = true;
-    } else {
-      limparErro(msgInput, erroMsg);
-    }
-
-    // Se houver erros, não enviar
-    if (temErros) return;
-
-    // Feedback: desativa botao enquanto envia
-    btn.disabled = true;
-    btn.classList.add('loading');
-    btn.textContent = 'Enviando...';
-    status.textContent = '';
-    status.className = '';
-
-    const data = new FormData(form);
-
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: data
-      });
-
-      const json = await res.json();
-
-      if (json.success) {
-        lastSubmit = Date.now(); // ── RATE LIMIT: registra timestamp do envio ──
-        // SUCESSO
-        btn.disabled = false;
-        btn.classList.remove('loading');
-        btn.textContent = 'Mensagem enviada! ✓';
-        btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
-        status.textContent = 'Obrigado! Vou te responder em breve.';
-        status.style.cssText = 'margin-top:.8rem;font-size:.75rem;color:#22c55e;letter-spacing:1px;text-align:center;';
-        form.reset();
-
-        // Reabilitar botão após 3 segundos
-        setTimeout(() => {
-          btn.textContent = 'Enviar mensagem →';
-          btn.style.background = '';
-        }, 3000);
-      } else {
-        throw new Error('Falha no envio');
-      }
-
-    } catch (err) {
-      // ERRO
-      btn.disabled = false;
-      btn.classList.remove('loading');
-      btn.textContent = 'Tente novamente';
-      btn.style.background = '';
-      status.textContent = 'Algo deu errado. Tenta pelo WhatsApp!';
-      status.style.cssText = 'margin-top:.8rem;font-size:.75rem;color:#ff3ea5;letter-spacing:1px;text-align:center;';
-      console.error('Erro ao enviar:', err);
-    }
-  });
-}

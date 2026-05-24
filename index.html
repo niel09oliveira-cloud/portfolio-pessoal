@@ -9,8 +9,12 @@
   <meta name="description" content="Site de apresentação pessoal desenvolvido com HTML, CSS e JavaScript puro. Animações CSS, partículas interativas, efeito 3D e formulário de contato integrado.">
   <meta name="keywords" content="web developer, front-end, html, css, javascript, desenvolvedor web">
   <meta name="theme-color" content="#7c3aed">
-  <!-- Content Security Policy -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; img-src 'self' data:; connect-src api.web3forms.com; frame-ancestors 'none';">
+  <!-- Content Security Policy — sem unsafe-inline em scripts -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; img-src 'self' data: https:; connect-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests;">
+  <!-- Referrer-Policy: envia apenas origem em requisições cross-origin -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <!-- Impede MIME sniffing -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
   
   <!-- Open Graph para Redes Sociais -->
   <meta property="og:title" content="Daniel Dev - Web Developer">
@@ -78,7 +82,7 @@
       </div>
       <div class="hero-btns reveal reveal-delay-3">
         <a href="#contact" class="btn-primary nav-anchor">Fale comigo</a>
-        <a href="curriculo_daniel.docx" download="Curriculo_Daniel_Martins.docx" class="btn-ghost btn-download">⬇ Baixar currículo</a>
+        <a href="curriculo_daniel.pdf" download="Curriculo_Daniel.pdf" class="btn-ghost btn-download">⬇ Baixar currículo</a>
         <a href="https://github.com/niel09oliveira-cloud" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub</a>
       </div>
     </div>
@@ -319,8 +323,8 @@
         <div class="cert-icon">🎓</div>
         <div class="cert-content">
           <div class="cert-title">Engenharia de Software</div>
-          <div class="cert-org">Unopar</div>
-          <div class="cert-status">Em Andamento (até 2029)</div>
+          <div class="cert-org">Ensino Superior</div>
+          <div class="cert-status">Em Andamento</div>
         </div>
       </div>
 
@@ -389,7 +393,7 @@ Ficarei feliz em conversar com você. <br>Estou aberto a oportunidades, projetos
           </div>
           <span class="contact-link-arrow">→</span>
         </a>
-        <a href="mailto:niel09oliveira@gmail.com" class="contact-link reveal reveal-delay-3">
+        <a href="#" class="contact-link contact-email reveal reveal-delay-3">
           <div class="contact-link-icon">✉️</div>
           <div class="contact-link-info">
             <div class="contact-link-label">Email</div>
@@ -397,7 +401,7 @@ Ficarei feliz em conversar com você. <br>Estou aberto a oportunidades, projetos
           </div>
           <span class="contact-link-arrow">→</span>
         </a>
-        <a href="https://wa.me/5543984260540" target="_blank" rel="noopener noreferrer" class="contact-link reveal reveal-delay-3">
+        <a href="#" class="contact-link contact-whatsapp reveal reveal-delay-3" rel="noopener noreferrer">
           <div class="contact-link-icon">💬</div>
           <div class="contact-link-info">
             <div class="contact-link-label">WhatsApp</div>
@@ -408,44 +412,6 @@ Ficarei feliz em conversar com você. <br>Estou aberto a oportunidades, projetos
       </div>
     </div>
 
-    <!-- FORMULARIO WEB3FORMS -->
-    <div class="contact-form-side reveal reveal-delay-2">
-
-      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
-
-        <!-- Chave do Web3Forms (injetada via script) -->
-        <input type="hidden" name="access_key" id="wf-key" value="">
-
-        <!-- Assunto do email -->
-        <input type="hidden" name="subject" value="Novo contato via Portfolio - Daniel Dev">
-
-        <!-- Redireciona para a mesma pagina apos envio -->
-        <input type="hidden" name="redirect" value="false">
-
-        <div class="form-group">
-          <label class="form-label" for="nome">Seu nome</label>
-          <input id="nome" type="text" name="name" class="form-input" placeholder="Como posso te chamar?" required aria-required="true" aria-describedby="erro-nome">
-          <span id="erro-nome" class="form-error"></span>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="email">Email</label>
-          <input id="email" type="email" name="email" class="form-input" placeholder="Seu @email.com" required aria-required="true" aria-describedby="erro-email">
-          <span id="erro-email" class="form-error"></span>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="mensagem">Mensagem</label>
-          <textarea id="mensagem" name="message" class="form-textarea" placeholder="Olá, Daniel. Gostaria de..." required aria-required="true" aria-describedby="erro-msg"></textarea>
-          <span id="erro-msg" class="form-error"></span>
-        </div>
-
-        <!-- Honeypot: campo invisível — bots preenchem, humanos não -->
-        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-
-        <button type="submit" class="form-btn" id="form-btn">Enviar mensagem →</button>
-        <div id="form-status"></div>
-
-      </form>
-    </div>
   </section>
 
   <!-- FOOTER -->
