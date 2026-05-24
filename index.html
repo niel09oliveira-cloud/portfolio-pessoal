@@ -1,1 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Meta Tags -->
+  <title>Portfólio - Daniel</title>
+  <meta name="description" content="Site de apresentação pessoal desenvolvido com HTML, CSS e JavaScript puro. Animações CSS, partículas interativas, efeito 3D e formulário de contato integrado.">
+  <meta name="keywords" content="web developer, front-end, html, css, javascript, desenvolvedor web">
+  <meta name="theme-color" content="#7c3aed">
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; img-src 'self' data:; connect-src api.web3forms.com; frame-ancestors 'none';">
+  
+  <!-- Open Graph para Redes Sociais -->
+  <meta property="og:title" content="Daniel Dev - Web Developer">
+  <meta property="og:description" content="Desenvolvedor Front-End especializado em HTML, CSS e JavaScript.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://niel09oliveira-cloud.github.io/portfolio-pessoal/">
+  <meta property="og:image" content="https://niel09oliveira-cloud.github.io/portfolio-pessoal/daniel.jpg.jpeg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Daniel Dev - Web Developer">
+  <meta name="twitter:description" content="Desenvolvedor Front-End com HTML, CSS e JavaScript">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='bold' fill='%23c8ff00'>D</text></svg>">
+  
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
 
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- THEME TOGGLE -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+    <span class="theme-icon">🌙</span>
+  </button>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Daniel Dev</div>
+    <ul class="nav-links">
+      <li><a href="#about" class="nav-anchor">Sobre</a></li>
+      <li><a href="#skills" class="nav-anchor">Skills</a></li>
+      <li><a href="#projects" class="nav-anchor">Projetos</a></li>
+      <li><a href="#certificates" class="nav-anchor">Certificados</a></li>
+      <li><a href="#contact" class="nav-anchor">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-tag reveal">
+        <span class="dot"></span>
+        Disponivel para oportunidades
+      </div>
+      <h1 class="hero-name reveal reveal-delay-1">
+        <span class="line1">Web</span>
+        <span class="line2">Developer</span>
+      </h1>
+
+      <div class="hero-sub reveal reveal-delay-2">
+      
+      <p>Apaixonado por criar experiências digitais que combinam <span>código limpo</span> com design que impressiona.</p>
+
+      <p>Desenvolvedor Web focado em criar interfaces modernas, funcionais e bem estruturadas.</p>
+
+      <p>Experiência com HTML, CSS e JavaScript, sempre buscando escrever código limpo, organizado e com boa experiência para o usuário.</p>
+
+      <p>Estou em constante aprendizado, evoluindo minhas habilidades e construindo projetos que resolvem problemas reais.</p>
+
+      </div>
+      <div class="hero-btns reveal reveal-delay-3">
+        <a href="#contact" class="btn-primary nav-anchor">Fale comigo</a>
+        <a href="curriculo_daniel.docx" download="Curriculo_Daniel_Martins.docx" class="btn-ghost btn-download">⬇ Baixar currículo</a>
+        <a href="https://github.com/niel09oliveira-cloud" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub</a>
+      </div>
+    </div>
+    <div class="hero-deco">
+      <div class="deco-box"><div class="deco-inner"><span class="deco-icon">💻</span>Web Dev</div></div>
+      <div class="deco-box"><div class="deco-inner"><span class="deco-icon">✨</span></div></div>
+      <div class="deco-box"><div class="deco-inner">HTML &middot; CSS &middot; JS</div></div>
+    </div>
+  </section>
+
+  <div class="glow-divider-wrap"><div class="glow-divider"></div></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-left">
+      <p class="section-label reveal">about me</p>
+      <h2 class="section-title reveal reveal-delay-1">Quem é<br>o Daniel?</h2>
+      <div class="about-text reveal reveal-delay-2">
+        <p>Sou estudante de <strong>Engenharia de Software</strong>, apaixonado por transformar ideias em experiencias web que realmente chamam atenção.</p>
+        <p>Me especializo no desenvolvimento <strong>Front-End</strong>, buscando evoluir para o <strong>Full-Stack</strong>, com equilibrio entre código bem estruturado e interfaces que causam impacto. Estou em constante aprendizado e evolução.</p>
+        
+        <p>Sou um desenvolvedor web em constante evolução, apaixonado por tecnologia, desafios e crescimento pessoal.</p>
+
+        <p>Minha trajetória começou no futebol, onde aprendi disciplina, foco e resiliência — valores que hoje aplico diretamente na programação. Já tive a oportunidade de competir em nível de base e viver de perto a exigência de um ambiente profissional.</p>
+
+        <p>Hoje, canalizo essa mesma mentalidade para o desenvolvimento, buscando criar soluções eficientes, aprender todos os dias e evoluir como programador e como pessoa.</p>
+
+        <p>Acredito em Deus, na família e no processo, e levo isso comigo em tudo o que faço.</p>
+      </div>
+    </div>
+    <div class="about-visual reveal reveal-delay-2">
+      <div class="about-card-3d" id="card3d">
+
+        <div class="about-photo">
+          <img src="daniel.jpg.jpeg" alt="Daniel - Web Developer especializado em Front-End">
+        </div>
+        <div class="about-card-info">
+          <div class="about-card-name">Daniel</div>
+          <div class="about-card-role">Web Developer</div>
+          <div class="about-card-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Git</span>
+            <span class="tag">Front-End</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider-wrap"><div class="glow-divider"></div></div>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="skills-header">
+      <p class="section-label reveal" style="justify-content:center">skills</p>
+      <h2 class="section-title reveal reveal-delay-1">Minhas<br>Habilidades</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal" data-fill="90">
+        <div class="skill-icon">📄</div>
+        <div class="skill-name">HTML5</div>
+        <div class="skill-level">Avançado</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1" data-fill="85">
+        <div class="skill-icon">🎨</div>
+        <div class="skill-name">CSS3</div>
+        <div class="skill-level">Avançado</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2" data-fill="65">
+        <div class="skill-icon">⚡</div>
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-level">Intermediário</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-3" data-fill="75">
+        <div class="skill-icon">🐙</div>
+        <div class="skill-name">Git &amp; GitHub</div>
+        <div class="skill-level">Intermediário</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill-card reveal" data-fill="70">
+        <div class="skill-icon">🇬🇧</div>
+        <div class="skill-name">Inglês</div>
+        <div class="skill-level">Intermediário</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1" data-fill="75">
+        <div class="skill-icon">🧠</div>
+        <div class="skill-name">Lógica de Programação</div>
+        <div class="skill-level">Intermediário</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2" data-fill="55">
+        <div class="skill-icon">📱</div>
+        <div class="skill-name">Responsive Design</div>
+        <div class="skill-level">Intermediário</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-3" data-fill="40">
+        <div class="skill-icon">🚀</div>
+        <div class="skill-name">Em aprendizado...</div>
+        <div class="skill-level">Crescendo sempre</div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider-wrap"><div class="glow-divider"></div></div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="projects-header">
+      <p class="section-label reveal" style="justify-content:center">projetos</p>
+      <h2 class="section-title reveal reveal-delay-1">Meus<br>Projetos</h2>
+      <p class="projects-subtitle reveal reveal-delay-2">Aqui estão alguns dos projetos que desenvolvi para praticar, aprender e evoluir como desenvolvedor. <br>Estou sempre buscando evoluir e construir aplicações cada vez mais completas.</p>
+    </div>
+
+    <!-- FILTROS -->
+    <div class="projects-filters reveal reveal-delay-2">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="html-css">HTML &amp; CSS</button>
+      <button class="filter-btn" data-filter="javascript">JavaScript</button>
+    </div>
+
+    <!-- GRID -->
+    <div class="projects-grid" id="projects-grid">
+
+      <!-- Android WebSite -->
+      <div class="project-card reveal" data-categories="html-css">
+        <div class="project-preview">
+          <div class="project-preview-bg" style="background: linear-gradient(135deg, #3ddc84 0%, #073042 60%, #00b0ff 100%);">
+            <div class="project-preview-icon">🤖</div>
+          </div>
+          <div class="project-overlay">
+            <a href="https://niel09oliveira-cloud.github.io/android-website/" target="_blank" rel="noopener noreferrer" class="project-live-btn">Ver ao vivo →</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-number">01</span>
+            <div class="project-links">
+              <a href="https://niel09oliveira-cloud.github.io/android-website/" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="Live">🔗</a>
+              <a href="https://github.com/niel09oliveira-cloud/android-website" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="GitHub">🐙</a>
+            </div>
+          </div>
+          <h3 class="project-title">Android WebSite</h3>
+          <p class="project-desc">Site informativo sobre Android com HTML5 semântico, CSS3 avançado e animações. Design responsivo com Flexbox, foco em acessibilidade e boas práticas de frontend.</p>
+          <div class="project-tags">
+            <span class="project-tag">HTML5</span>
+            <span class="project-tag">CSS3</span>
+            <span class="project-tag">Animações</span>
+            <span class="project-tag">Flexbox</span>
+            <span class="project-tag">Responsivo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task Manager -->
+      <div class="project-card reveal reveal-delay-1" data-categories="javascript html-css">
+        <div class="project-preview">
+          <div class="project-preview-bg" style="background: linear-gradient(135deg, #7c3aed 0%, #080810 60%, #c8ff00 100%);">
+            <div class="project-preview-icon">✅</div>
+          </div>
+          <div class="project-overlay">
+            <a href="https://niel09oliveira-cloud.github.io/task-manager/" target="_blank" rel="noopener noreferrer" class="project-live-btn">Ver ao vivo →</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-number">02</span>
+            <div class="project-links">
+              <a href="https://niel09oliveira-cloud.github.io/task-manager/" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="Live">🔗</a>
+              <a href="https://github.com/niel09oliveira-cloud/task-manager" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="GitHub">🐙</a>
+            </div>
+          </div>
+          <h3 class="project-title">Task Manager</h3>
+          <p class="project-desc">Task Manager responsivo e moderno com categorias, gráfico semanal de produtividade e design dark. Relógio em tempo real, filtros, edição inline e persistência via localStorage.</p>
+          <div class="project-tags">
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">HTML5</span>
+            <span class="project-tag">CSS3</span>
+            <span class="project-tag">localStorage</span>
+            <span class="project-tag">Gráficos</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  <!-- JS Exercícios -->
+      <div class="project-card reveal reveal-delay-2" data-categories="javascript">
+        <div class="project-preview">
+          <div class="project-preview-bg" style="background: linear-gradient(135deg, #f7df1e 0%, #1a1a2e 55%, #f0a500 100%);">
+            <div class="project-preview-icon">📚</div>
+          </div>
+          <div class="project-overlay">
+            <a href="https://github.com/niel09oliveira-cloud/js-exercicios/" target="_blank" rel="noopener noreferrer" class="project-live-btn">Ver no GitHub →</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-number">03</span>
+            <div class="project-links">
+              <a href="https://niel09oliveira-cloud.github.io/js-exercicios/" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="Live">🔗</a>
+              <a href="https://github.com/niel09oliveira-cloud/js-exercicios" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="GitHub">🐙</a>
+            </div>
+          </div>
+          <h3 class="project-title">JS Exercícios</h3>
+          <p class="project-desc">Exercícios práticos desenvolvidos durante o curso de JavaScript, abordando manipulação do DOM, estruturas condicionais, laços de repetição e funções.</p>
+          <div class="project-tags">
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">DOM</span>
+            <span class="project-tag">Funções</span>
+            <span class="project-tag">Laços</span>
+            <span class="project-tag">Lógica</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="glow-divider-wrap"><div class="glow-divider"></div></div>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <div class="certificates-header">
+      <p class="section-label reveal" style="justify-content:center">formação</p>
+      <h2 class="section-title reveal reveal-delay-1">Certificados &<br>Formação</h2>
+    </div>
+    <div class="certificates-grid">
+      
+      <div class="cert-card reveal">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-content">
+          <div class="cert-title">Engenharia de Software</div>
+          <div class="cert-org">Unopar</div>
+          <div class="cert-status">Em Andamento (até 2029)</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal reveal-delay-1">
+        <div class="cert-icon">🌐</div>
+        <div class="cert-content">
+          <div class="cert-title">Inglês</div>
+          <div class="cert-org">Jumper Cursos</div>
+          <div class="cert-status">Certificado</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal reveal-delay-2">
+        <div class="cert-icon">💻</div>
+        <div class="cert-content">
+          <div class="cert-title">Informática</div>
+          <div class="cert-org">Jumper Cursos</div>
+          <div class="cert-status">Certificado</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal reveal-delay-3">
+        <div class="cert-icon">📊</div>
+        <div class="cert-content">
+          <div class="cert-title">Técnico em Administração</div>
+          <div class="cert-org">Ensino Profissionalizante</div>
+          <div class="cert-status">Certificado</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">📚</div>
+        <div class="cert-content">
+          <div class="cert-title">Ensino Médio Completo</div>
+          <div class="cert-org">Educação Formal</div>
+          <div class="cert-status">Certificado</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="glow-divider-wrap"><div class="glow-divider"></div></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-left">
+      <p class="section-label reveal">contato</p>
+      <h2 class="section-title reveal reveal-delay-1">Vamos<br>conversar?</h2>
+      <p class="about-text reveal reveal-delay-2" style="margin-bottom:0">Tem alguma oportunidade, projeto ou ideia?
+Ficarei feliz em conversar com você. <br>Estou aberto a oportunidades, projetos e colaborações. Me chama!</p>
+      <div class="contact-links">
+        <a href="https://github.com/niel09oliveira-cloud" target="_blank" rel="noopener noreferrer" class="contact-link reveal reveal-delay-1">
+          <div class="contact-link-icon">🐙</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">GitHub</div>
+            <div class="contact-link-value">niel09oliveira-cloud</div>
+          </div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+        <a href="https://www.linkedin.com/in/daniel-martins-de-oliveira-1724513a6" target="_blank" rel="noopener noreferrer" class="contact-link reveal reveal-delay-2">
+          <div class="contact-link-icon">💼</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-value">daniel-martins-de-oliveira</div>
+          </div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+        <a href="mailto:niel09oliveira@gmail.com" class="contact-link reveal reveal-delay-3">
+          <div class="contact-link-icon">✉️</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-value">Enviar email →</div>
+          </div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+        <a href="https://wa.me/5543984260540" target="_blank" rel="noopener noreferrer" class="contact-link reveal reveal-delay-3">
+          <div class="contact-link-icon">💬</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">WhatsApp</div>
+            <div class="contact-link-value">Enviar mensagem →</div>
+          </div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- FORMULARIO WEB3FORMS -->
+    <div class="contact-form-side reveal reveal-delay-2">
+
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+
+        <!-- Chave do Web3Forms (injetada via script) -->
+        <input type="hidden" name="access_key" id="wf-key" value="">
+
+        <!-- Assunto do email -->
+        <input type="hidden" name="subject" value="Novo contato via Portfolio - Daniel Dev">
+
+        <!-- Redireciona para a mesma pagina apos envio -->
+        <input type="hidden" name="redirect" value="false">
+
+        <div class="form-group">
+          <label class="form-label" for="nome">Seu nome</label>
+          <input id="nome" type="text" name="name" class="form-input" placeholder="Como posso te chamar?" required aria-required="true" aria-describedby="erro-nome">
+          <span id="erro-nome" class="form-error"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input id="email" type="email" name="email" class="form-input" placeholder="Seu @email.com" required aria-required="true" aria-describedby="erro-email">
+          <span id="erro-email" class="form-error"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="message" class="form-textarea" placeholder="Olá, Daniel. Gostaria de..." required aria-required="true" aria-describedby="erro-msg"></textarea>
+          <span id="erro-msg" class="form-error"></span>
+        </div>
+
+        <!-- Honeypot: campo invisível — bots preenchem, humanos não -->
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <button type="submit" class="form-btn" id="form-btn">Enviar mensagem →</button>
+        <div id="form-status"></div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-text">© 2026 <span>Daniel Dev</span>. Feito com código e café. ☕</div>
+    <div class="footer-text">Brasil</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
